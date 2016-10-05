@@ -70,3 +70,10 @@ RUN touch /usr/local/etc/php/conf.d/thirdparty.ini \
     && echo "extension=oauth.so" >> /usr/local/etc/php/conf.d/thirdparty.ini \
     && echo "extension=ssh2.so" >> /usr/local/etc/php/conf.d/thirdparty.ini \
     && echo "extension=uuid.so" >> /usr/local/etc/php/conf.d/thirdparty.ini
+
+# Install composer, this needs to be two steps to ensure we get the latest version
+ADD http://getcomposer.org/installer /tmp/installer
+RUN php /tmp/installer --install-dir=/usr/local/bin && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
+
+# Enable rewrite module
+RUN a2enmod rewrite
