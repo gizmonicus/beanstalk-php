@@ -62,3 +62,10 @@ docker-compose down
 ```
 docker-compose pull
 ```
+
+## Building the image
+You have two options for building. The easiest option would be to modify the Dockerfile and commit/push the changes. This will trigger a Dockerhub build that can take anywhere from 10-20 minutes to complete. If you are impatient, and would like to try the build locally before committing the changes, run the following command to trigger a build locally.
+```
+docker-compose build
+```
+It's best to try the build locally first to make sure you don't run into syntax errors or problems with the build before pushing it to Github.

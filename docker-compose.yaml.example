@@ -10,3 +10,5 @@ services:
       - 8080:80
     volumes:
       - ./html:/var/www/html
+    environment:
+      - DEBUG=1
