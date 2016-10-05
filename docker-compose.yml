@@ -1,7 +1,0 @@
----
-version: 2
-beanstalk-php:
-  restart: always
-  image: gizmonicus/beanstalk-php:latest
-  ports:
-    - 8080:80
