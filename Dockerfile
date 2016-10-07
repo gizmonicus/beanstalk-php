@@ -4,6 +4,7 @@ FROM php:5.6-apache
 RUN apt-get -y update \
     && apt-get -y install \
       automake \
+      git \
       libicu-dev \
       libmagickcore-dev \
       libmagickwand-dev \
@@ -38,7 +39,8 @@ RUN docker-php-ext-install \
       sysvmsg \
       wddx \
       xmlrpc \
-      xsl
+      xsl \
+      zip
 
 # Magic from https://github.com/docker-library/php/issues/103
 RUN set -x \
