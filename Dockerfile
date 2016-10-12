@@ -77,5 +77,7 @@ RUN touch /usr/local/etc/php/conf.d/thirdparty.ini \
 ADD http://getcomposer.org/installer /tmp/installer
 RUN php /tmp/installer --install-dir=/usr/local/bin && ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
+RUN find /etc/apache2/ -type f -name \*.conf | while read FN; do sed -i 's/Listen\(.*\)80/Listen\18080/g;s/Listen\(.*\)443/Listen\18443/g' "$FN"; done
+
 # Enable rewrite module
 RUN a2enmod rewrite

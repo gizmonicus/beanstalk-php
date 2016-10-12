@@ -6,9 +6,8 @@ services:
     build:
       context: ./
     image: gizmonicus/beanstalk-php:latest
-    ports:
-      - 8080:80
     volumes:
       - ./html:/var/www/html
     environment:
       - DEBUG=1
+    network_mode: host
