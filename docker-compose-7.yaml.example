@@ -11,4 +11,5 @@ services:
       - ./html:/var/www/html
     environment:
       - DEBUG=1
-    network_mode: host
+    ports:
+      - "80:80"
