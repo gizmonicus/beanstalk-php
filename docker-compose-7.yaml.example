@@ -1,0 +1,14 @@
+---
+version: "2"
+services:
+  php:
+    restart: never
+    build:
+      context: ./
+      dockerfile: Dockerfile-7
+    image: gizmonicus/beanstalk-php:7
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      - DEBUG=1
+    network_mode: host
