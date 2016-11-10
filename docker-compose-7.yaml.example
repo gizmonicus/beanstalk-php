@@ -1,7 +1,7 @@
 ---
 version: "2"
 services:
-  php:
+  php7:
     restart: never
     build:
       context: ./

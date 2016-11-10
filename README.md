@@ -12,7 +12,7 @@ You can run the image manually if you would like using docker commands, but for 
 # Working with docker-compose
 
 ## Edit docker-compose.yaml
-Before you begin, you will want to map your code repository to the /var/www/html directory as well as add any necessary environment variables by editing the docker-compose.yaml.example file and saving it to docker-compose.yaml. There is a .gitignore statement that will prevent docker-compose.yaml from being committed in the repo.
+Before you begin, you will want to map your code repository to the /var/www/html directory as well as add any necessary environment variables by editing the docker-compose-$VERSION.yaml.example file and saving it to docker-compose.yaml. There is a .gitignore statement that will prevent docker-compose.yaml from being committed in the repo. If you will be working with both PHP5 and PHP7, you can create two different docker-compose-$VERSION.yaml files and refer to them with ```docker-compose -f docker-compose-$VERSION.yaml``` when running any of the commands later in this document.
 
 ## Run the image
 Note that all of these commands should be run from the root of this Git repo.
