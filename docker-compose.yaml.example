@@ -1,11 +1,21 @@
 ---
 version: "2"
 services:
-  php:
+  php5:
     restart: never
     build:
       context: ./
-    image: gizmonicus/beanstalk-php:latest
+    image: gizmonicus/beanstalk-php:5
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      - DEBUG=1
+    network_mode: host
+  php7:
+    restart: never
+    build:
+      context: ./
+    image: gizmonicus/beanstalk-php:7
     volumes:
       - ./html:/var/www/html
     environment:
