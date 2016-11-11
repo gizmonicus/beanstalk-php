@@ -1,1 +1,4 @@
 docker-compose*.yaml
+mysql/*.sql
+mysql/*.sh
+mysql/*.sql.gz

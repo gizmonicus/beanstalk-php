@@ -8,8 +8,26 @@ services:
       dockerfile: Dockerfile-7
     image: gizmonicus/beanstalk-php:7
     volumes:
-      - ./html:/var/www/html
+      - "./html:/var/www/html"
     environment:
-      - DEBUG=1
+      DEBUG: 1
+      SQL_DB_HOST: mysql57
+      SQL_DB_PASSWD: password
+      SQL_DB_USER: user
     ports:
       - "80:80"
+    depends_on:
+      - mysql57
+
+  mysql57:
+    restart: never
+    image: mysql:5.7
+    volumes:
+      - "./mysql:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
