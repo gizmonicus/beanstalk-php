@@ -73,3 +73,13 @@ You have two options for building. The easiest option would be to modify the Doc
 docker-compose build
 ```
 It's best to try the build locally first to make sure you don't run into syntax errors or problems with the build before pushing it to Github.
+
+## Troubleshooting
+To restart the docker daemon on Linux, use one of the following commands:
+```
+# On systems with systemd init system
+systemctl restart docker
+
+# On systems with upstart or SysVinit
+service docker restart
+```
