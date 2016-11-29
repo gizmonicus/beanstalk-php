@@ -29,7 +29,11 @@ docker-compose up -d
 
 * Running /bin/bash in the container (i.e. how to "SSH" in). Note that docker-compose files can be made up of multiple containers. When running commands like `docker-compose up`, you don't have to identify which container to run since it will start all of them at the same time. However, when using exec, you must specify which one to exec the command in. In this case 'php' is the service name.
 ```
-docker-compose exec php /bin/bash
+# If you are using the php5 image, use this command
+docker-compose exec php5 /bin/bash
+
+# If you are using the php7 image, use this command
+docker-compose exec php7 /bin/bash
 ```
 
 * To get the status of a running docker-compose service
