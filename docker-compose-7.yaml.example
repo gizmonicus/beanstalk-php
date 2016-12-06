@@ -1,7 +1,7 @@
 ---
 version: "2"
 services:
-  php7:
+  php-7:
     restart: never
     build:
       context: ./
@@ -19,9 +19,10 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - mysql57
+      - mysql57-7
+      - redis-7
 
-  mysql57:
+  mysql57-7:
     restart: never
     image: mysql:5.7
     volumes:
@@ -36,3 +37,9 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
+
+  redis-7:
+    restart: never
+    image: redis
+    ports:
+      - "6379:6379"
