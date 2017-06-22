@@ -18,6 +18,7 @@ RUN apt-get -y update \
       npm \
       unixODBC-dev \
       uuid-dev \
+      vim \
     && apt-get clean
 
 # Fix PHP config errors with stupid library logic.

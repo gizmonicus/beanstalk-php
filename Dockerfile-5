@@ -16,6 +16,7 @@ RUN apt-get -y update \
       npm \
       unixODBC-dev \
       uuid-dev \
+      vim \
     && apt-get clean
 
 # PHP extensions
