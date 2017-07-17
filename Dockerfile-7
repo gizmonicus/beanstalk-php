@@ -87,5 +87,8 @@ RUN php /tmp/installer --install-dir=/usr/local/bin && ln -s /usr/local/bin/comp
 
 #RUN find /etc/apache2/ -type f -name \*.conf | while read FN; do sed -i 's/Listen\(.*\)80/Listen\18080/g;s/Listen\(.*\)443/Listen\18443/g' "$FN"; done
 
+# Add jenkins users
+RUN groupadd -g 496 jenkins && useradd -g jenkins -u 498 jenkins
+
 # Enable rewrite module
 RUN a2enmod rewrite
