@@ -10,12 +10,13 @@ services:
     volumes:
       - "./html:/var/www/html"
     environment:
-      DEBUG: 1
-      # This has to match the service name below for the host name to work
-      # in a container.
-      SQL_DB_HOST: mysql57
-      SQL_DB_PASSWD: password
-      SQL_DB_USER: user
+      - DEBUG=1
+      - SQL_DB_HOST=mysql57
+      - SQL_DB_PASSWD=password
+      - SQL_DB_USER=user
+      - AWS_SECRET_ACCESS_KEY
+      - AWS_ACCESS_KEY_ID
+      - AWS_DEFAULT_REGION
     ports:
       - "80:80"
     depends_on:
@@ -31,10 +32,10 @@ services:
       # These env vars take effect when first creating the container,
       # modify them as you see fit to match the database name you are 
       # working with.
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
     ports:
       - "3306:3306"
 
