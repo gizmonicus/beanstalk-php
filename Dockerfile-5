@@ -19,6 +19,9 @@ RUN apt-get -y update \
       vim \
     && apt-get clean
 
+# Fix PHP config errors with stupid library logic.
+RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so
+
 # PHP extensions
 RUN docker-php-ext-install \
       bcmath \
