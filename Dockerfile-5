@@ -6,6 +6,7 @@ RUN apt-get -y update \
       automake \
       git \
       libicu-dev \
+      libldap2-dev \
       libmagickcore-dev \
       libmagickwand-dev \
       libmcrypt-dev \
@@ -21,6 +22,9 @@ RUN apt-get -y update \
 
 # Fix PHP config errors with stupid library logic.
 RUN ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so
+
+# Fix LDAP extension
+RUN docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu
 
 # PHP extensions
 RUN docker-php-ext-install \
