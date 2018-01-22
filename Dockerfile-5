@@ -33,6 +33,7 @@ RUN docker-php-ext-install \
       exif \
       gettext \
       gd \
+      ldap \
       mysql \
       mysqli \
       mcrypt \
