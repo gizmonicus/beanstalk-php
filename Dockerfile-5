@@ -94,3 +94,7 @@ RUN groupadd -g 496 jenkins && useradd -g jenkins -u 498 jenkins
 
 # Enable rewrite module
 RUN a2enmod rewrite
+
+# Add UID/GID fix script
+ADD ./run.sh /run.sh
+CMD /run.sh
