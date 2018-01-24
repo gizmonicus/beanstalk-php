@@ -9,6 +9,9 @@ Before running this image, you will need a working version of Docker installed. 
 ## Docker Compose
 You can run the image manually if you would like using docker commands, but for convenience, I have added a docker-compose.yaml file that handles mappings of ports, volumes, and environment variables for you. This way you can run and restart this image with a few shortcut commands. You will need to install docker-compose to take advantage of these features. It is best to install docker-compose through pip (you may need to install python-pip through your package manager), but you may also be able to install it through your operating system's package manager. For more details, see https://docs.docker.com/compose/install/
 
+## UID/GID
+When working with docker, sometimes you will have need to mount a directory into the container in a way that it can be written to. This can pose a challenge because the container has its own UID/GID space that is baked into the image on build. So if apache has a UID of 33 in the container, that may be some entirely different user on the host OS. To overcome this, the run.sh script looks for two environment variables: MYUID and MYGID. This will override the apache user's UID and GID. By setting these variables to your own UID/GID will allow the apache user to effectively have your permissions on the host OS.
+
 # Working with docker-compose
 
 ## Edit docker-compose.yaml
