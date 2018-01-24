@@ -96,6 +96,14 @@ RUN groupadd -g 496 jenkins && useradd -g jenkins -u 498 jenkins
 # Enable rewrite module
 RUN a2enmod rewrite
 
-# Add UID/GID fix script
-ADD ./run.sh /run.sh
+# Add our filesystem overlay
+ADD ./root_5 /
+
+# Fix the apache user home directory so it doesn't hang when
+# we change the UID (this forces a chown of the home directory
+# which is mapped to a very large network filesystem).
+RUN mkdir /home/www-data && \
+    usermod -d /home/www-data www-data && \
+    chown -R www-data:www-data /home/www-data
+
 CMD /run.sh

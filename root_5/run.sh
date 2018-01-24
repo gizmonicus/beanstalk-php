@@ -1,4 +1,7 @@
 #!/bin/sh
+# Turn debug on
+set -x
+
 if [ -z "$MYGID" ] || [ -z "$MYUID" ]; then
     echo "WARNING: You did not set MYGID/MYUID, skipping ownership change."
 else
@@ -14,7 +17,6 @@ else
     chown -hR $MYUID:$MYGID /run/apache2
     chown -hR $MYUID:$MYGID /var/cache/apache2/mod_cache_disk
     chown -hR $MYUID:$MYGID /var/log/apache2
-    chown -hR $MYUID:$MYGID /var/www/html
 
     echo "Permissions set successfully; starting Apache"
 fi
