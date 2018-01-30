@@ -97,7 +97,7 @@ RUN groupadd -g 496 jenkins && useradd -g jenkins -u 498 jenkins
 RUN a2enmod rewrite
 
 # Add our filesystem overlay
-ADD ./root_5 /
+ADD ./root_7 /
 
 # Fix the apache user home directory so it doesn't hang when
 # we change the UID (this forces a chown of the home directory
