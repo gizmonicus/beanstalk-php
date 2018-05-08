@@ -2,7 +2,6 @@
 version: "2"
 services:
   php-7:
-    restart: never
     build:
       context: ./
       dockerfile: Dockerfile-7
@@ -24,7 +23,6 @@ services:
       - redis-7
 
   mysql57-7:
-    restart: never
     image: mysql:5.7
     volumes:
       - "./mysql:/docker-entrypoint-initdb.d"
@@ -40,7 +38,6 @@ services:
       - "3306:3306"
 
   redis-7:
-    restart: never
     image: redis
     ports:
       - "6379:6379"

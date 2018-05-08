@@ -15,6 +15,7 @@ RUN apt-get -y update \
       libpng12-dev \
       libssh2-1-dev \
       libxslt1-dev \
+      mysql-client \
       npm \
       unixODBC-dev \
       uuid-dev \
