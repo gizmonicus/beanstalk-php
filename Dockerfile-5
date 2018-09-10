@@ -11,11 +11,11 @@ RUN apt-get -y update \
       libmagickwand-dev \
       libmcrypt-dev \
       libmemcached-dev \
-      libpng12-dev \
+      libpng-dev \
       libssh2-1-dev \
       libxslt1-dev \
-      npm \
-      unixODBC-dev \
+      nodejs \
+      unixodbc-dev \
       uuid-dev \
       vim \
     && apt-get clean
