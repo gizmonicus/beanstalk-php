@@ -76,6 +76,9 @@ RUN pecl install \
       xdebug \
       uuid
 
+# Change PHP memory limit
+RUN echo "memory_limit = 512M" > $PHP_INI_DIR/conf.d/wf-memlimit.ini
+
 # Add extensions to include dir
 RUN touch /usr/local/etc/php/conf.d/thirdparty.ini \
     && echo "extension=igbinary.so" >> /usr/local/etc/php/conf.d/thirdparty.ini \
